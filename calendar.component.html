@@ -1,0 +1,29 @@
+<div class="container">
+  <div class="calendar" *ngIf="viewMonths">
+    <div *ngFor="let m of viewMonths; let i = index">
+
+      <div class="month">
+
+        <div class="date">
+          <h1>{{m.name}} {{m.year}}</h1>
+        </div>
+      </div>
+      <div class="weekdays">
+        <div>Sun</div>
+        <div>Mon</div>
+        <div>Tue</div>
+        <div>Wed</div>
+        <div>Thu</div>
+        <div>Fri</div>
+        <div>Sat</div>
+      </div>
+      <div *ngIf="m.days" class="days">
+
+        <div *ngFor="let day of m.days; let i=index" [ngClass]="{today : day.isToday}">
+          {{day.value}}
+        </div>
+
+      </div>
+    </div>
+  </div>
+</div>
